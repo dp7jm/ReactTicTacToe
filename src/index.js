@@ -20,7 +20,7 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            squers: Array(9).fill(null),
+            squares: Array(9).fill(null),
         }
     }
     renderSquare(i) {
@@ -30,6 +30,11 @@ class Board extends React.Component {
                 onClick={() => this.hadleClick(i)}
             />
         );
+    }
+    hadleClick(i){
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares: squares});
     }
 
     render() {
