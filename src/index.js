@@ -56,9 +56,9 @@ class Game extends React.Component {
             history: [{
                 squares: Array(9).fill(null),
             }],
-            steoNumber: 0,
+            stepNumber: 0,
             xIsNext: true,
-        }
+        };
     }
     handleClick(i) {
         const history = this.state.history;
@@ -76,9 +76,9 @@ class Game extends React.Component {
         });
       }
       jumpTo(step) {
-          this.state({
+          this.setState({
               stepNumber: step,
-              xIsNext: (step % 2) == 0,
+              xIsNext: (step % 2) === 0,
           });
       }
     render() {
@@ -93,8 +93,7 @@ class Game extends React.Component {
             return(
                 <li key={move}>
                     <button onClick={() => this.jumpTo(move)}>
-                        {desc}
-                    </button>
+                        {desc}</button>
                 </li>
             )
         });
