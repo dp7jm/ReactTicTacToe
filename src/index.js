@@ -56,6 +56,7 @@ class Game extends React.Component {
             history: [{
                 squares: Array(9).fill(null),
             }],
+            steoNumber: 0,
             xIsNext: true,
         }
     }
@@ -73,6 +74,12 @@ class Game extends React.Component {
           }]),
           xIsNext: !this.state.xIsNext,
         });
+      }
+      jumpTo(step) {
+          this.state({
+              stepNumber: step,
+              xIsNext: (step % 2) == 0,
+          });
       }
     render() {
         const history = this.state.history;
